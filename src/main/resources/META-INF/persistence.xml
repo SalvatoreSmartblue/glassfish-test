@@ -7,6 +7,7 @@
     <persistence-unit name="peoplePU" transaction-type="JTA">
         <jta-data-source>jdbc/PeopleDS</jta-data-source>
         <class>it.smartblue.glassfishtest.model.Person</class>
+        <class>it.smartblue.glassfishtest.model.User</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
         </properties>
