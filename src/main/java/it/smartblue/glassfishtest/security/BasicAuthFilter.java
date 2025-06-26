@@ -23,9 +23,15 @@ public class BasicAuthFilter implements ContainerRequestFilter {
 
     @Override
     public void filter(ContainerRequestContext requestCtx) {
+
         // Escludi login e register dalla protezione Basic Auth
         String path = requestCtx.getUriInfo().getPath();
         if (path.startsWith("auth/login") || path.startsWith("auth/register")) {
+            return;
+        }
+
+        // Escludi le richieste preflight
+        if ("OPTIONS".equalsIgnoreCase(requestCtx.getMethod())) {
             return;
         }
 
